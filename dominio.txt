@@ -1,10 +1,50 @@
-http://www.pontofrio.com.br/
-http://www.casasbahia.com.br/
-http://www.magazineluiza.com.br/
-https://www.saraiva.com.br/
-https://www.livrariacultura.com.br/
-https://www.submarino.com.br/
-https://www.americanas.com.br/
-http://www.extra.com.br/
-https://www.walmart.com.br/
-https://www.shoptime.com.br/
+http://www.pontofrio.com.br/  --ok
+http://www.casasbahia.com.br/ --ok
+http://www.magazineluiza.com.br/ --ok
+https://www.saraiva.com.br/   --ok
+https://www.livrariacultura.com.br/ --ok
+http://www.extra.com.br/  --ok
+https://www.walmart.com.br/  --ok
+http://www.videoperola.com.br/ --ok
+https://www.colecioneclassicos.com.br/  --ok
+https://ewmix.com/  --ok
+
+HEURISTICA:
+http://www.pontofrio.com.br/  --ok
+http://www.casasbahia.com.br/ --ok
+http://www.magazineluiza.com.br/ --ok
+https://www.saraiva.com.br/   --ok
+https://www.livrariacultura.com.br/ --ok
+http://www.extra.com.br/  --ok
+https://www.walmart.com.br/  --ok
+http://www.videoperola.com.br/
+https://www.colecioneclassicos.com.br/
+https://ewmix.com/
+
+
+//HEURISTICA:
+Pegar o .Path da Url, pegar o caminho apos a ultima barra e checar palavras chaves lá
+
+Funcionam pegando da ultima barra em diante:
+- Ponto Frio
+- Casas Bahia
+- Saraiva
+- Extra
+
+Funcionam com o '/p' e '/pr':
+- Magazine Luiza (/p)
+- Livraria Cultura (/p)
+- Walmart (/pr)
+
+Urls não indicam se é um produto, ou se é de fato um filme, o jeito vai ser buscar no corpo do html:
+- Video Perola
+- Colecione Classicos
+- ewmix
+
+
+Atribui pontos as paginas referentes as heuristicas:
+Se a pagina possui palavras chaves(da ultima barra em diante), somo x pontos
+se possui palavras tipo, temporada, season, filtro, categoria, removo x pontos
+
+se nao foi possivel identificar pela url == 0 pontos:
+busca no corpo do documento
