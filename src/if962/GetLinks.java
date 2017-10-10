@@ -107,6 +107,7 @@ public class GetLinks {
 					this.pagesDisallowed.add(exception);
 				}else {
 					String exception = body;
+					//guarda os caminhos desabilitados na lista pagesDisallowed
 					this.pagesDisallowed.add(exception);
 				}
 			}

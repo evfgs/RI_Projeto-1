@@ -46,13 +46,13 @@ public class MovieCrawler
 				crawling.crawl(givenUrl, host);
 				System.out.println(givenUrl);
 				this.pagesToVisit.addAll(crawling.returnLinks());
-				
+
 				if(host.equals("www.pontofrio.com.br") || host.equals("www.casasbahia.com.br") || host.equals("www.saraiva.com.br") || host.equals("www.extra.com.br")){
 					if(crawling.checkLastBar(givenUrl)){
 						crawling.savePage(givenUrl);
 						this.pagesSaved++;
 					}
-					
+
 				}
 				else if(host.equals("www.magazineluiza.com.br") || host.equals("www.livrariacultura.com.br") || host.equals("www.walmart.com.br")){
 					if(crawling.checkProductAtUrl(givenUrl)){
@@ -78,35 +78,13 @@ public class MovieCrawler
 						this.pagesSaved++;
 					}
 				}
-				//crawling.savePage(givenUrl);
-				//loop pagesVisited and save in a file.txt for now
-				//TO-DO create a method to download those urls
-				//saveUrls(givenUrl, host.getHost());
 
 			}
-			/** boolean success = crawling.searchForWord();
-          if(success)
-          {
-              System.out.println(String.format("\n" + givenUrl + "\nContém palavras chave"));
-              //System.out.println("Foram encontrados: " + crawling.linksSize + " links!");
-              pagesReturned.add(givenUrl);
-              //metodo para pegar esses links que contem palavras chave e salvar em um txt
-          }*/
 
 		}
 
 	}
-	/** 
-  private void saveUrls(String givenUrl, String hostname){
-	  try{
-		    PrintWriter writer = new PrintWriter("C:\\Users\\emanu\\workspace\\WebCrawler\\src\\outputs\\" + hostname + ".html", "UTF-8");
-		    writer.println(givenUrl);
-		    writer.close();
-		} catch (IOException e) {
-		   // do something
-		}
-  }
-	 */
+
 
 
 	private String getNextLink()
@@ -122,9 +100,6 @@ public class MovieCrawler
 
 	public static void main(String[] args) throws URISyntaxException, IOException
 	{
-		//Connection connection = Jsoup.connect(BASE_URL).userAgent(USER_AGENT);
-		//Document htmlDocument = connection.get();
-		//System.out.println(htmlDocument.select("title"));
 		MovieCrawler spider = new MovieCrawler();
 		spider.visit(BASE_URL); 
 
