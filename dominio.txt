@@ -17,9 +17,9 @@ https://www.saraiva.com.br/   --ok
 https://www.livrariacultura.com.br/ --ok
 http://www.extra.com.br/  --ok
 https://www.walmart.com.br/  --ok
-http://www.videoperola.com.br/
+http://www.videoperola.com.br/ -- ok
 https://www.colecioneclassicos.com.br/
-https://ewmix.com/
+https://ewmix.com/  --ok
 
 
 //HEURISTICA:

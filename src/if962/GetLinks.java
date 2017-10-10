@@ -12,20 +12,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class Crawl
-{
-	// We'll use a fake USER_AGENT so the web server thinks the robot is a normal web browser.
+public class GetLinks {
+
 	private static final String USER_AGENT =
 			"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
 	private List<String> links = new LinkedList<String>();
-	private Document htmlDocument;
+	private Document html;
 	private String[] keywordsAtUrl = {"filme", "filmes", "dvd", "blu-ray", "discos", "trilogia", "blu", "ray", "colecao", "3d", "box"};
-	private List<String> exceptions = new LinkedList<String>();
-	private List<String> regexExceptions = new LinkedList<String>();
+	private String[] keywordsAtBody = {"diretor", "título", "idioma", "legenda", "origem", "distribuidora", "produção", "discos", "colorido", "formato", "duração", "classificação indicativa","estúdio", "elenco", "sinopse", "gênero"};
+	private List<String> pagesDisallowed = new LinkedList<String>();
+	private List<String> listRegex = new LinkedList<String>();
 	private int countFile = 0;
 	private String hostname;
 	private String htmlFile;
-	//public int linksSize;
 
 
 	public boolean crawl(String url, String hostname){
@@ -34,26 +33,22 @@ public class Crawl
 		{
 			Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
 			Document htmlDocument = connection.get();
-			this.htmlDocument = htmlDocument;
+			this.html = htmlDocument;
 			this.htmlFile = htmlDocument.toString();
 			if(connection.response().statusCode() == 200)
-				if(!connection.response().contentType().contains("text/html"))
-				{
+				if(!connection.response().contentType().contains("text/html")){
+
 					return false;
 				}
 			Elements linksOnPage = htmlDocument.select("a[href]");
-			//linksSize = linksOnPage.size();
-			//System.out.println("Found (" + linksOnPage.size() + ") links");
-			for(Element link : linksOnPage)
-			{
+			for(Element link : linksOnPage){
+
 				String pagina = link.absUrl("href").toLowerCase();
 				if(pagina.contains("filme") || pagina.contains("dvd") || pagina.contains("blu-ray")){
 					this.links.add(link.absUrl("href"));
 				}
-				//this.links.add(link.absUrl("href"));
-				//System.out.println(link.absUrl("href"));
+
 			}
-			//System.out.println("cabo");
 			return true;
 		}
 		catch(IOException ioe)
@@ -64,45 +59,44 @@ public class Crawl
 
 
 
-	/**
-	public boolean searchForWord()
-	{
+
+	public boolean checkKeywordsBody(String givenUrl){
 		int pageScore = 0;
-		if(this.htmlDocument == null)
-		{
-			System.out.println("Corpo de html inexistente!");
+
+		if(this.html == null){
 			return false;
 		}
-		String bodyText = this.htmlDocument.body().text();
-		for(String keyword: keywords){
+		String bodyText = this.html.body().text();
+		if(bodyText.toLowerCase().contains("temporada")){
+			return false;
+		}
+		for(String keyword: keywordsAtBody){
 			if( bodyText.toLowerCase().contains(keyword.toLowerCase())){
 				pageScore++;
 			}
 		}
-		if(pageScore >=5 && bodyText.contains("R$")){
+		if(pageScore >=6){
 			return true;
 		}
 		return false;
-	}*/
+
+	}
 
 
-	public List<String> getLinks()
+	public List<String> returnLinks()
 	{
 		return this.links;
 	}
-	
+
 	public void clearLinks(){
 		this.links = new LinkedList<String>();;
 	}
 
-	public void createExceptions(String url) {
+	public void getPagesDisallowed(String url) {
 		try{
 			Connection connection = Jsoup.connect(url + "/robots.txt").userAgent(USER_AGENT);
 			Document htmlDocument = connection.get();
-			this.htmlDocument = htmlDocument;
-
-			System.out.println(url + "/robots.txt");
-
+			this.html = htmlDocument;
 			String body = htmlDocument.body().text();
 
 			while (body.contains("Disallow: ")) {
@@ -110,16 +104,15 @@ public class Crawl
 				if (body.contains(" ")) {
 					String exception = body.substring(0, body.indexOf(" "));
 					body = body.substring(body.indexOf(" "), body.length());
-					this.exceptions.add(exception);
-					//System.out.println(exception);
+					this.pagesDisallowed.add(exception);
 				}else {
 					String exception = body;
-					this.exceptions.add(exception);
+					this.pagesDisallowed.add(exception);
 				}
 			}
-			createRegex(url);
+			setRegex(url);
 
-			System.out.println(regexExceptions);
+			System.out.println(listRegex);
 		}
 		catch(IOException ioe)
 		{
@@ -127,9 +120,9 @@ public class Crawl
 		}
 	}
 
-	public void createRegex(String urlPrefix){
+	public void setRegex(String urlPrefix){
 
-		for(String exception: exceptions) {
+		for(String exception: pagesDisallowed) {
 			String regex = "";
 
 			if(exception.charAt(0) == '*') {
@@ -155,26 +148,26 @@ public class Crawl
 			}else {
 				regex = regex + exception + ")";
 			}
-			regex = fixRegex(regex);
-			this.regexExceptions.add(regex);
+			regex = matchRegex(regex);
+			this.listRegex.add(regex);
 		}
 	}
 
-	public String fixRegex(String regex) {
-		String fixedRegex = "";
+	public String matchRegex(String regex) {
+		String newRegex = "";
 		for(int i = 0; i < regex.length(); i++) {
 			if((regex.charAt(i) + "").matches("[?]")) {
-				fixedRegex = fixedRegex + "\\" + regex.charAt(i);
+				newRegex = newRegex + "\\" + regex.charAt(i);
 			}else {
-				fixedRegex = fixedRegex + regex.charAt(i);
+				newRegex = newRegex + regex.charAt(i);
 			}
 		}
-		return fixedRegex;
+		return newRegex;
 	}
 
-	public boolean checkExceptions(String prefix) {
+	public boolean checkpagesDisallowed(String prefix) {
 		boolean valReturn = true;
-		for(String exception: regexExceptions) {
+		for(String exception: listRegex) {
 			if(prefix.matches(exception)) {
 				valReturn = false;
 			}
@@ -184,10 +177,10 @@ public class Crawl
 
 	public void savePage(String givenUrl) throws IOException {
 		String urlAtHtml = "<!--" + givenUrl + "-->\n"; 
-		
+
 		try 
 		{
-			File f = new File("C:\\Users\\emanu\\Desktop\\outputs\\heuristica\\saraiva\\" + this.hostname + countFile + ".html");
+			File f = new File("C:\\Users\\emanu\\Desktop\\outputs\\heuristica\\colecioneclassicos\\" + this.hostname + countFile + ".html");
 			FileOutputStream fop = new FileOutputStream(f);
 			fop.write(urlAtHtml.getBytes());
 			fop.write(this.htmlFile.getBytes());
@@ -200,7 +193,7 @@ public class Crawl
 		}
 		countFile++;
 	}
-	
+
 	public boolean checkLastBar(String givenUrl){
 		String aux;
 		List<Integer> indices = new LinkedList<Integer>();
@@ -212,25 +205,45 @@ public class Crawl
 		aux = givenUrl.substring(indices.get(indices.size()-1)+1).toLowerCase();
 		return checkRelevance(aux);
 	}
-	
+
 	public boolean checkRelevance(String text){
+		if(text.contains("temporada") || text.contains("season") || text.contains("serie") || text.contains("secao") || text.contains("temp")){
+			return false;
+		}
 		for(int i = 0; i < keywordsAtUrl.length; i++){
-			if(text.contains("temporada") || text.contains("season")){
-				return false;
-			}
 			if(text.contains(keywordsAtUrl[i].toLowerCase())){
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public boolean checkProductAtUrl(String text){
 		if(text.contains("/p/") || text.contains("/pr")){
-			return true;
+			return checkRelevance(text);
 		}
 		return false;
 	}
+
+	public boolean checkTitle(String givenUrl){
+		try{
+			Connection connection = Jsoup.connect(givenUrl).userAgent(USER_AGENT);
+			Document htmlDocument = connection.get();
+			Elements tagTitle = htmlDocument.select("title");
+			String title = tagTitle.toString().toLowerCase();
+			if(title.contains("temporada") || title.contains("season") || title.contains("serie") || title.contains("secao") || title.contains("temp")){
+				return false;
+			} else if(title.contains("dvd") || title.contains("blu-ray")){
+				return true;
+			}
+		}
+		catch(IOException ioe)
+		{
+			System.out.println(ioe);
+		}
+		return false;
+	}
+
 
 
 }

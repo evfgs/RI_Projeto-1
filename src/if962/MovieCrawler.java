@@ -7,10 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+
 public class MovieCrawler
 {
 	private static final int PAGES_TO_CRAWL = 1000;
-	private static String BASE_URL = "https://www.saraiva.com.br/filmes";
+	private static String BASE_URL = "https://www.colecioneclassicos.com.br/filmes";
 	private List<String> pagesVisited = new LinkedList<String>();
 	private List<String> pagesToVisit = new LinkedList<String>();
 	private int pagesSaved = 0;
@@ -18,12 +19,12 @@ public class MovieCrawler
 
 	public void visit(String url) throws IOException{
 
-		Crawl crawling = new Crawl();
+		GetLinks crawling = new GetLinks();
 		URL base = new URL(url);
 		String protocol = base.getProtocol();
 		String host = base.getHost();
 		String hostname = protocol +  "://" + host;
-		crawling.createExceptions(hostname);
+		crawling.getPagesDisallowed(hostname);
 
 		while(this.pagesSaved < PAGES_TO_CRAWL){
 
@@ -36,24 +37,16 @@ public class MovieCrawler
 			else{
 				givenUrl = this.getNextLink();
 
-				//StartsWith or contains
-				//Alguns sites nao mantem a estrutura da url, por ex: saraiva.com.br/filmes -> saraiva.com.br/filmes/logan
-				//Alguns sites fazem isso: saraiva.com.br -> saraiva.com.br/logan
-				while(!givenUrl.contains(hostname)){
+				while(!givenUrl.contains(hostname) || givenUrl.contains("twitter") || givenUrl.contains("facebook") || givenUrl.contains("plus.google")){
 					givenUrl = this.getNextLink();  
 				}
-				/* while(!currentUrl.startsWith(BASE_URL + "dvdsebluray/FilmeseSeriados/")){
-            	  currentUrl = this.getNextLink();
-              }*/
 			}
 			URL filename = new URL(givenUrl);
-			if(crawling.checkExceptions(filename.getFile())){
+			if(crawling.checkpagesDisallowed(filename.getFile())){
 				crawling.crawl(givenUrl, host);
 				System.out.println(givenUrl);
-				this.pagesToVisit.addAll(crawling.getLinks());
-				//heuristica vai ser aqui, se True chama savePage
-				//cria um contador, para ver qtas vezes savePage vai ser chamado
-				//CHAMO AS HEURISTICAS PRA CADA DOMINIO, DENTRO DE UM IF COM VARIOS || SE ALGUM FOR TRUE, SALVA PAGE
+				this.pagesToVisit.addAll(crawling.returnLinks());
+				
 				if(host.equals("www.pontofrio.com.br") || host.equals("www.casasbahia.com.br") || host.equals("www.saraiva.com.br") || host.equals("www.extra.com.br")){
 					if(crawling.checkLastBar(givenUrl)){
 						crawling.savePage(givenUrl);
@@ -61,8 +54,26 @@ public class MovieCrawler
 					}
 					
 				}
-				if(host.equals("www.magazineluiza.com.br") || host.equals("www.livrariacultura.com.br") || host.equals("www.walmart.com.br")){
-					if(crawling.checkProductAtUrl(givenUrl) && (crawling.checkRelevance(givenUrl))){
+				else if(host.equals("www.magazineluiza.com.br") || host.equals("www.livrariacultura.com.br") || host.equals("www.walmart.com.br")){
+					if(crawling.checkProductAtUrl(givenUrl)){
+						crawling.savePage(givenUrl);
+						this.pagesSaved++;
+					}
+				}
+				else if(host.equals("ewmix.com")){
+					if(crawling.checkRelevance(givenUrl)){
+						crawling.savePage(givenUrl);
+						this.pagesSaved++;
+					}
+				}
+				else if (host.equals("www.videoperola.com.br")){
+					if(crawling.checkTitle(givenUrl)){
+						crawling.savePage(givenUrl);
+						this.pagesSaved++;
+					}
+				} 
+				else{
+					if(crawling.checkKeywordsBody(givenUrl)){
 						crawling.savePage(givenUrl);
 						this.pagesSaved++;
 					}
@@ -111,6 +122,9 @@ public class MovieCrawler
 
 	public static void main(String[] args) throws URISyntaxException, IOException
 	{
+		//Connection connection = Jsoup.connect(BASE_URL).userAgent(USER_AGENT);
+		//Document htmlDocument = connection.get();
+		//System.out.println(htmlDocument.select("title"));
 		MovieCrawler spider = new MovieCrawler();
 		spider.visit(BASE_URL); 
 
