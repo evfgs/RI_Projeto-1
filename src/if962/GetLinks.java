@@ -181,7 +181,7 @@ public class GetLinks {
 
 		try 
 		{
-			File f = new File("C:\\Users\\emanu\\Desktop\\outputs\\heuristica\\colecioneclassicos\\" + this.hostname + countFile + ".html");
+			File f = new File("C://Users//emanu//Desktop//outputs//heuristica//Nova Pasta//" + this.hostname + countFile + ".html");
 			FileOutputStream fop = new FileOutputStream(f);
 			fop.write(urlAtHtml.getBytes());
 			fop.write(this.htmlFile.getBytes());
@@ -208,7 +208,7 @@ public class GetLinks {
 	}
 
 	public boolean checkRelevance(String text){
-		if(text.contains("temporada") || text.contains("season") || text.contains("serie") || text.contains("secao") || text.contains("temp")){
+		if(text.contains("temporada") || text.contains("season")|| text.contains("secao") || text.contains("temp")){
 			return false;
 		}
 		for(int i = 0; i < keywordsAtUrl.length; i++){

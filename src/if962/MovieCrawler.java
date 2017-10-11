@@ -11,7 +11,7 @@ import java.util.List;
 public class MovieCrawler
 {
 	private static final int PAGES_TO_CRAWL = 1000;
-	private static String BASE_URL = "https://www.colecioneclassicos.com.br/filmes";
+	private static String BASE_URL = "https://www.saraiva.com.br/filmes";
 	private List<String> pagesVisited = new LinkedList<String>();
 	private List<String> pagesToVisit = new LinkedList<String>();
 	private int pagesSaved = 0;

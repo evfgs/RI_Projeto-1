@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt_BR">
+<head><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/2C6F9A40-3D7A-BD4E-A0B9-91E610696EE7/main.js" charset="UTF-8"></script><script type="text/javascript" src="./wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-1.12.4-ver-8195A8C8C12FE76B1AF13FF30D4EC630.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery-ver-C3754B973B77810139CEB050DAFE9A6A.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-6DF86E3B3842D86E08D396E6FC566F05.js"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="politicadetrocas";
+/*]]>*/
+</script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.extensions.ajax.markup.html.autocomplete.AutoCompleteBehavior/wicket-autocomplete-ver-6F3661524C0203FDD9B232E12EA5F0ED.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { new Wicket.AutoComplete('id120', {"u":"./politicadetrocas?50-1.IBehaviorListener.0-topo-frm-tfPesquisa","c":"id120","wr":false,"dt":"html"}, {preselect: false,maxHeight: -1,adjustInputWidth: true,useSmartPositioning: false,showListOnEmptyInput: false,ignoreBordersWhenPositioning: true,showListOnFocusGain: false,throttleDelay: 300,minInputLength: 1,parameterName: 'q',showCompleteListOnFocusGain: false}, null);;});
+/*]]>*/
+</script>
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.componentes.topo.Topo/Topo-ver-9212988775637EA796E5E4DF08DFFD24.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.componentes.menu.secao.MenuPrincipalSecao/MenuPrincipalSecao-ver-423194BC61787642FB474A5406781FD5.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.componentes.produto.ProdutoSolo/ProdutoSolo-ver-B808C935A00BA6DDCF8E47883C6B32E1.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.template.AbstractTemplatePage/css/animate-ver-AC472C8EECAC0D8C54086FD387D557D2.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.componentes.produto.ProdutoGrupo/ProdutoGrupo-ver-5907E16DB5BC9F8770A44272E8D4E6EA.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.componentes.rodape.Rodape/Rodape-ver-34852614F15C00C3CA2AF900694379CD.css" />
+<title>eWmix.com: Política de trocas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="Política de troca de produtos" />
+<meta name="keywords" content="troca, trocas, produto, defeito, politica" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=768,initial-scale=1,user-scalable=no">
+<link rel="search" type="application/opensearchdescription+xml" title="eWmix.com" href="/opensearch.xml" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.template.AbstractTemplatePage/AbstractTemplatePage-ver-8D1904D2BAA0282E837FEDF0DCD0EDAF.css" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,700,300" />
+<script type="text/javascript" src="./wicket/resource/ailes.site.template.AbstractTemplatePage/js/analytics-ver-7EAC5B73F36ECF6E9455A6042E78760B.js"></script>
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.template.principal.TemplatePrincipal/TemplatePrincipal-ver-B6D0E09B8E0911246104110AC7BC1D77.css" />
+<link rel="stylesheet" type="text/css" href="./wicket/resource/ailes.site.paginas.troca.politica.PoliticaTrocaPage/PoliticaTrocaPage-ver-798E71390A87FCFD1BAB7261F075AC9C.css" />
+</head>
+<body>
+<a href="#irconteudo" style="display: none;">Ir direto ao conteudo</a>
+<div id="topo">
+<div id="barra"></div>
+<form id="id121" method="post" action="./politicadetrocas?50-1.IFormSubmitListener-topo-frm"><div style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input type="hidden" name="id121_hf_0" id="id121_hf_0" /></div>
+<div id="toposecoes">
+<div id="logo">
+<a href="."><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIoAAAAiCAYAAACAyEHnAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwMi4wOS4xMCfPMRAAAAAedEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzUuMasfSOsAABBqSURBVHic7Zt/eFTVmcc/8zMECCG0gEoFE3dZLbUroGsVEVlL0SoYEJ6K2l2Ja23QrQvqY7SsaTHtPvwBrICrqzWwsO4KgmgXiqA2/MrwswFSIEIZAhRmBhBy82Ny586dmbt/nDthMrnnzkwiPv7R7/PMP3PO+55f3/O+73nPuQ7DMPgL/oKM+KqIEo1GywwbHDhwoAwoAFx2ehKJxFY7PcBVQC8rWUVRihKJxEGZbCAQWAj0B9xf9vh7Ck3Tplr1uamp6X1gAOC5Um0bhvHVEQXwhsPhXTaLdBj4LtBHpkDX9fF2JDGJci+CLFZwtLW1/W+GPtwC9PvSR99DqKpaJev30qVLfwYMApxXom3DMK6MYgnidoWRSKQXMAToLavjcDh+mUU7dhalf35+/v0ywd27d58Fvgl4s2jnK4XD4RgpK3vmmWcUoJArRBSupGILxJ1OZ0JWaBiGA8hD4np0XR/vcrnG9qQDffr0me10OgusyjRNizz//POfAm2A3pN2rgQcDkd/q/+DwWAIcCA2onR+e4qvnS+WIUtrIoWiKEUul+tZWfmGDRt8fr//LHAOaO9JW1cCoVDovV69ehWoqpofj8c7NlNtbW09oCD6/PUgiq7r48PhsEvTtC6WaPDgwVuAGFegs1+WNXE4HJaxh6ZpkRdeeOET4CzwBWIcXwsk57yxsfH0/v37Xw8EAgOj0agXYM2aNY1Hjhy5APwZaLdbn127dh188MEHv0CsjwGgqmpxPB4v0TTNGYvFHKn1o9Gocu211+4naalkwayiKEW6rs/Tdf2PmQLIVEQikSOKoqxevXr1zQhX0tEBVVV9Mjm/338CKMUiEE0kEqeybR94HLguXUc8Hj8tk1m7du1nwKOlpaWj29vbX5fVCwQCC6uqqobF4/F6uz7E4/GWCxcu/AYoAjyKohTFYrHf2snoun5m586dUxHBfMdCB4PBWxOJRLNEpm3WrFmTzDnzbNu2baBsnM3NzXuBa8w1ScIZDof/Q9anefPmjQMKDNmpR1GUokyTkQm6rreVlpaONgfu6C5RMh2r02FFFDsdkUhELSkpqQDuBgb4/f4fyuoGAoHDwWBwW7Z92b9/fzVwta7r/5etzNatWysRx92ke/GEQqFqWf1nn332Z8BQhHdwnTp1qlJW95FHHnkUcTpyAITD4VEyEp4/f/7PwAPAtwwZUWKxWNaTYYd9+/atB67HPEV0hyh2lsAKVkSx0+Hz+eqAHwPDAW9LS8u/5dKeHTRNa9+wYUNO+jRNawdu5fIR3Smbt0gkogJlwN+YRHFUVVUNk+n++OOPPwK+DXjNnJKlpY5EIurYsWN/bRLlKsOKKLquz8llYHZobm6+aO7Uou4QJVdrYhhdiZJJx1133VUFTEAcix3RaHRHrm3aQdO09lxlysvLXwCuxXRBsnr19fVHgEeAYVx2V57z589/YFVfUZRLwN2VlZXXyTxGJBJRp02b9howA7gRyDcMo3Mwa54MKruYGBPBYDC0atWqHXv27Dmxd+/e4JQpU4aMHj16WGlp6aS8vLwuuYt+/foNAAYC+UCTTK8MLpfrF7nK5KLD5/Md2LZtmx8IAK2KovT3eDxjetpmKrxeb36uMp999pmKmDNnOBy+WVavrq7uONACqFw+RMROnz69YuDAgVPS6xcWFhZVVlbePXv27DFOp/MmK52PPfbYW2vWrNkDHAbOABGgs0XRdX2ejL0HDx5sAP4FmA7cCdyEYNzNFRUVP5HJAf+AYHxOFqU71sRs73FMi5Ipkzt27NhfARMRZHa0t7c/ZFe/urp6A/As8ATw+PDhw2fV1dVJx2QYIlAeN27cPOBJYObw4cNnbdy4URrYmu5kJvBXgKu9vf15Wd0ZM2bMN9ci/TSXH4lEAlYydhZu4cKFa835G2nqTFq0zkSRBTaRSEQtLi7+OTAJEXP0Q0TPHkQW9JuyxlMXLheiyOKK2tra/TId6e3ZxVq1tbX7zQUZYY6FSCSyNEP9cuAeRExwHVC8Y8eOf80gM8sk43eAEqD4vffemymTMWOmhxGux6Fp2nqbsf7E3LCpJxkAZ2Nj4y9kclYwSfJPwPcQoULHyctITeFrmjZVlmfYunXr/sbGxtPAnxDmqAXQEBnMCHDJSq67iEajZU6n81qrsoqKit9loyNT7sXUEwDOA1EAj8czWVZ/3759xxBjPwr4gZPAyVGjRt2YhUwDcAxoBE5OmjTp1gwyzYh5NTwej+UY/H7/SYTLscokJ1atWlUtayMdmzdv3jlnzpzNZj+T7qxTPiw1RpkqU1RYWOjdvn37D4cOHXpLYWGhml7u9XqHWslpmhZBJHdyunmUxRU+n+/A9u3bj2ejwy6Tm6InSXpDVdViGTkBPvzww8PABUQWNJmQM/Ly8u6UySxevHgvItN7CZOMAF6vV0rgdevWHUHEc2o4HB4l27z19fV+oJXO8UkHKioqgmVlZeusYpVU+Hy+AxMnTnwXYQSOm213uZfrIIrH45kkU3bbbbeNBkbbNWiFM2fOhBBszzpbe/To0RkZrEkgk46VK1eOyNWaAH8vq68oilJTU3MWsdO15P925AoGgyG/338RMfGRVBm32/2dbNpxOBzSPm3ZsuVzBGkjkirSoDaJ+vr6z8eMGVONIMlRBKEtL2+dIMy0jLk9QWNj41nEHUTWl2wlJSXPWf1fX1//+fbt2/0IKyDFiy++eOOECROelJWn6WnBtHZOp1M6oXv37j2C2L2tdE7vSxfy0KFDJ0z9bXSefKlMQ0NDo1m/DYi5XK67ZXUXL158CHuiGA0NDbtl8oqiKKWlpSuBEwiXcx6bdXIDxGKxe9zuL/9+0OfzHUNMbjRTXYB33333+263e4hV2VtvvbUVYca/sNNRUlIyePDgwQ/KytP0dPRLFgsA7Ny58yimOyDFjTqdzvEZZDpijWxkUuITlczxSTuCiJZzqyhKUUFBwSZZW/n5+b0aGxuDiLjJliRgEsXurcPatWtrXC5XzO6JgBVaW1vbKysrf4/w6zLWd8LkyZN/ZPW/3+8/+frrr/8BM99hp+Phhx+WulALPQaIVLadRV2xYsVhLhOlA263+y6ZTGVl5V7S3A7Yu3gzPlGAiKqqxRnikxYkN8YmSbbKciUAeXl5vaqrq+8oKyvbQYa3QmASxel0DrMqDAaDoWnTpq0DTpkdywUGYncESPHrMpSUlBTLyhYtWrQJYQXOkYF0ZpIvJz12sUBKrNFMyu61i0/MHR9GLHrH2O0IaREHdTs+6du373/ZkSSJ22+//e8QR+Egwt1J4QbweDwjrApPnToVQFiEzxHmKVfoiEFnZKwMphWoQ8QUCt18xmCnx+12l8rkdu3adRixScJkGWvs2LHjEGLBO8UndoRMj0/sXJRdfBKLxVa4XC6p1UrFDTfc8N2pU6fe9MEHH5xGjE96OrV94RYKhZI7qcnsWK6/MD1822FagZD5y8qF5arHLm1v7t6c4pNNmzYdQZwgOrVjR8j0+ETm1swXbSoW8YlJkh9byZmpii546qmnJmE+h5D1DRBZN1m27qOPPvoYsXOKbJWkQNf1OYhMYZfo2C4za4VAIBAEngJGkfKWNhcdhmEYx48fb0RkMTvpMSfQ8nV7EsBPgZtJe4cryxybKfgnEZnYThlTu3bGjx//CiIr2ldV1WJZvc2bN9cCDwFXp+q2u/JYuHDh2iVLlvyPVVnyohDx9YEljEyPqydOnDjunXfeuXvp0qXDEYxzWNULh8OjNE17NR6Pn25vb7/XHETOl2HpWLVq1Q6E6zvPFbImhmFI3UF9ff3nCKuYdXxy7NixRlOmlZSThKZp0oRmLvFJymmqI/aJRqNlHo/nHav6y5Yt+92cOXM+XrZs2ftW5cmLQlLudixh2FiU7mD16tX/DtyOeHzTCblYlKampibEPcn3EN/7pPY5a5h6fopIGHZ54W/3gm/58uW/RdxvDUobxxMymddee20VcH+6jN09knm/8yMu3+/8t6zu9ddf/xzik5LeYG8RU+6n7gKubmpq+tSqXl1dnQ9xEWi5uY2kRYnFYmelTMoRL7/88klEoJhV7kSG5cuXf4qwJkF68NjZ1PMFFlZJUZQiWZYUYNOmTQ1YHHHt4hMz1X+JtKO0y+UaJ5PJJT5JPYGFw+FRHo9nmVVdn893YMyYMe8gsq5/Ai6EQqGVVnVHjhx5+8iRI0uAvki8BoZhoCjKahkrc4H5FOEfgb+mBzGKaQWeRlimLp9XZNufTHoyPZFEEmvI4hOzvScQzy86gkO7mMMwuhWfXGP3jNFch38GfgB8K6UvfWKxWKuVTHV19duydTOSFuWTTz75tSWLckRNTc0fgYuIiLzbR2LTCpxH5GB6ak2kegyb+KSurq4BcVTtFGvYxSfdSfWnxyeGYYyS1U3GJxUVFb3y8/NrrHIywWAwNGXKlBWIG+4GRM4o2f9Ic3OzZbb2/vvvv4/Lj8y6wAkwffr0hj179vxc1/VuL4qmaZElS5bsQbgLyzN5IpFozkbP7NmztyLyHZaXVIlEwjY7C2IBZs+evSWDHmlyrqCgIA8xjggpOZd4PF4ik3G5XHEESTRSxq/r+jdkMqqqRhAuJwzE7IiiKEoL0Dp37txfyRJ3b7755icnTpw4jnjWkJ6ajx8+fHiJldygQYOGvPrqq/cg++LQEA+XHED/8vLyybt3796oKMolO1OZjqampqann376PxGv34qRfC80d+7c4ubm5uN2usxPJ2aYeiy/GqytrX0oGo2G7fQsWrTofbM/w2R6Kisrr7Prz5YtW1YjHiiljsejqmqDTGbjxo2/QZj7VJneZ8+elb5qO3jw4PbJkyffAnjfeOONIa2trces6p07d+7MzJkzp61bt+4HMhcSCoXOzpgx4zGEdbA6xfTauXPnz63mT9O09rfffrsccVTu9HDJYRgGDocDczILgMHANQ888MC3R4wYMTQej7sN8bmnFAsWLDiCcDnHEQ962rDO8uVNnz79xtGjR9976dKlAfF4vAuh1q9ff+zo0aP1QPLewwp9J0yY8Ld33nnn99va2goSiUSXCVmwYMEfEFfnR5HfD+UBQ+bPnz/94sWL30jtj9PpTBQUFLS88soraxEXZ0lr6wQGL1iw4NFz584NSpOJFxYWNu/atWvz+vXrD3E5SecGBr700ksPACW6rnuTc+p0OhO9e/cOb9u27fc1NTUHEBbsqvnz5z+c3iev16u5XK7jVVVVn913331X3XHHHRNaWloKU8fv9Xq1M2fOHFy5cuUWhHVPt6ROoLC8vHzswIEDb1FVtXdS3u1264MGDbrw3HPPvY84REShK1FAWBYv4ujVx/zlkfkbZZ3LGVzLhzQp+nshjs79sc4GagjSNSG/0XSafRuAILeVBVMRE9WMPF5Kfu9cZP7SP06PIcj6BZ1PPnlm21YyyblInnySG8aDGPMAxBykbr44Iq67iCCkV9KnhKmzyexbP/PnTqvTjn2smDQKAxDzmLS4BoIcTaQ8trIiSiocpgIXsiNT585l+zmpA7HQboleI0WX3cu4THpy6VNSj9WGkOmxk5GNwcnlOc0kY6c/bv4cWI/fSKkjm0O79e00ZsMw+H8hTqLmqd6HugAAAABJRU5ErkJggg==" alt="eWmix.com" /></a>
+</div>
+<div id="topobusca">
+<input type="text" maxlength="300" class="tfPesquisa" autocapitalize="off" tabindex="1" placeholder="Pesquisa" autocomplete="off" spellcheck="false" value="" name="tfPesquisa" id="id120" /> <a class="carrinho" href="./compra/carrinho"><span>carrinho</span><span id="itens"><span id="id122" style="display:none"></span></span></a> <a href="./cliente/conta" class="deslogado">entrar</a>
+</div>
+</div>
+</form>
+</div>
+<div id="menu">
+<div class="menu">
+<div class="secao">
+<h2><a class="" href="./secao/94/0/0/1/filmes"><span>Filmes</span></a></h2>
+<div class="subsecao">
+<h3>
+<a href="./secao/2/0/0/1/blu-ray"><span>Blu-ray</span></a>
+<ul><li><a href="./secao/352/0/0/1/3d"><span>3D</span></a></li><li><a href="./secao/28/0/0/1/acao"><span>Ação</span></a></li><li><a href="./secao/29/0/0/1/animacao"><span>Animação</span></a></li><li><a href="./secao/827/0/0/1/anime-live-action"><span>Anime &amp; Live Action</span></a></li><li><a href="./secao/30/0/0/1/aventura"><span>Aventura</span></a></li><li><a href="./secao/31/0/0/1/biografia"><span>Biografia</span></a></li><li><a href="./secao/34/0/0/1/comedia"><span>Comédia</span></a></li><li><a href="./secao/33/0/0/1/comedia-romantica"><span>Comédia Romântica</span></a></li><li><a href="./secao/36/0/0/1/documentario"><span>Documentário</span></a></li><li><a href="./secao/37/0/0/1/drama"><span>Drama</span></a></li><li><a href="./secao/54/0/0/1/epico"><span>Épico</span></a></li><li><a href="./secao/1026/0/0/1/familia"><span>Família</span></a></li><li><a href="./secao/629/0/0/1/fantasia"><span>Fantasia</span></a></li><li><a href="./secao/40/0/0/1/faroeste"><span>Faroeste</span></a></li><li><a href="./secao/49/0/0/1/ficcao-cientifica"><span>Ficção Científica</span></a></li><li><a href="./secao/41/0/0/1/guerra"><span>Guerra</span></a></li><li><a href="./secao/44/0/0/1/infantil"><span>Infantil</span></a></li><li><a href="./secao/45/0/0/1/misterio"><span>Mistério</span></a></li><li><a href="./secao/46/0/0/1/musical"><span>Musical</span></a></li><li><a href="./secao/47/0/0/1/policial"><span>Policial</span></a></li><li><a href="./secao/48/0/0/1/romance"><span>Romance</span></a></li><li><a href="./secao/50/0/0/1/suspense"><span>Suspense</span></a></li><li><a href="./secao/51/0/0/1/terror"><span>Terror</span></a></li></ul>
+</h3>
+<h3>
+<a href="./secao/1/0/0/1/dvd"><span>DVD</span></a>
+<ul><li><a href="./secao/3/0/0/1/acao"><span>Ação</span></a></li><li><a href="./secao/922/0/0/1/adultos"><span>Adultos</span></a></li><li><a href="./secao/4/0/0/1/animacao"><span>Animação</span></a></li><li><a href="./secao/826/0/0/1/anime-live-action"><span>Anime &amp; Live Action</span></a></li><li><a href="./secao/5/0/0/1/aventura"><span>Aventura</span></a></li><li><a href="./secao/6/0/0/1/biografia"><span>Biografia</span></a></li><li><a href="./secao/81/0/0/1/classicos"><span>Clássicos</span></a></li><li><a href="./secao/9/0/0/1/comedia"><span>Comédia</span></a></li><li><a href="./secao/8/0/0/1/comedia-romantica"><span>Comédia Romântica</span></a></li><li><a href="./secao/11/0/0/1/documentario"><span>Documentário</span></a></li><li><a href="./secao/12/0/0/1/drama"><span>Drama</span></a></li><li><a href="./secao/53/0/0/1/epico"><span>Épico</span></a></li><li><a href="./secao/1025/0/0/1/familia"><span>Família</span></a></li><li><a href="./secao/628/0/0/1/fantasia"><span>Fantasia</span></a></li><li><a href="./secao/15/0/0/1/faroeste"><span>Faroeste</span></a></li><li><a href="./secao/24/0/0/1/ficcao-cientifica"><span>Ficção Científica</span></a></li><li><a href="./secao/16/0/0/1/guerra"><span>Guerra</span></a></li><li><a href="./secao/17/0/0/1/historia"><span>História</span></a></li><li><a href="./secao/19/0/0/1/infantil"><span>Infantil</span></a></li><li><a href="./secao/20/0/0/1/misterio"><span>Mistério</span></a></li><li><a href="./secao/21/0/0/1/musical"><span>Musical</span></a></li><li><a href="./secao/22/0/0/1/policial"><span>Policial</span></a></li><li><a href="./secao/281/0/0/1/religioso"><span>Religioso</span></a></li><li><a href="./secao/23/0/0/1/romance"><span>Romance</span></a></li><li><a href="./secao/25/0/0/1/suspense"><span>Suspense</span></a></li><li><a href="./secao/26/0/0/1/terror"><span>Terror</span></a></li></ul>
+</h3>
+</div>
+</div><div class="secao">
+<h2><a class="" href="./secao/95/0/0/1/jogos"><span>Jogos</span></a></h2>
+<div class="subsecao">
+<h3>
+<a href="./secao/96/0/0/1/ps3"><span>PS3</span></a>
+<ul><li><a href="./secao/97/0/0/1/acao"><span>Ação</span></a></li><li><a href="./secao/98/0/0/1/aventura"><span>Aventura</span></a></li><li><a href="./secao/99/0/0/1/corrida"><span>Corrida</span></a></li><li><a href="./secao/100/0/0/1/esporte"><span>Esporte</span></a></li><li><a href="./secao/101/0/0/1/estrategia"><span>Estratégia</span></a></li><li><a href="./secao/308/0/0/1/games-3d"><span>Games 3D</span></a></li><li><a href="./secao/290/0/0/1/greatest-hits"><span>Greatest Hits</span></a></li><li><a href="./secao/102/0/0/1/guerra"><span>Guerra</span></a></li><li><a href="./secao/103/0/0/1/infantil"><span>Infantil</span></a></li><li><a href="./secao/104/0/0/1/luta"><span>Luta</span></a></li><li><a href="./secao/105/0/0/1/musica"><span>Música</span></a></li><li><a href="./secao/289/0/0/1/ps-move"><span>PS Move</span></a></li><li><a href="./secao/106/0/0/1/rpg"><span>RPG</span></a></li><li><a href="./secao/107/0/0/1/simulacao"><span>Simulação</span></a></li><li><a href="./secao/108/0/0/1/tiro"><span>Tiro</span></a></li></ul>
+</h3>
+<h3>
+<a href="./secao/731/0/0/1/ps4"><span>PS4</span></a>
+<ul><li><a href="./secao/742/0/0/1/acao"><span>Ação</span></a></li><li><a href="./secao/829/0/0/1/anime"><span>Anime</span></a></li><li><a href="./secao/743/0/0/1/aventura"><span>Aventura</span></a></li><li><a href="./secao/744/0/0/1/corrida"><span>Corrida</span></a></li><li><a href="./secao/745/0/0/1/esporte"><span>Esporte</span></a></li><li><a href="./secao/746/0/0/1/estrategia"><span>Estratégia</span></a></li><li><a href="./secao/748/0/0/1/guerra"><span>Guerra</span></a></li><li><a href="./secao/749/0/0/1/infantil"><span>Infantil</span></a></li><li><a href="./secao/750/0/0/1/luta"><span>Luta</span></a></li><li><a href="./secao/751/0/0/1/musica"><span>Música</span></a></li><li><a href="./secao/753/0/0/1/rpg"><span>RPG</span></a></li><li><a href="./secao/754/0/0/1/simulacao"><span>Simulação</span></a></li><li><a href="./secao/756/0/0/1/tiro"><span>Tiro</span></a></li><li><a href="./secao/757/0/0/1/violencia"><span>Violência</span></a></li></ul>
+</h3>
+<h3>
+<a href="./secao/732/0/0/1/xbox-one"><span>Xbox One</span></a>
+<ul><li><a href="./secao/758/0/0/1/acao"><span>Ação</span></a></li><li><a href="./secao/830/0/0/1/anime"><span>Anime</span></a></li><li><a href="./secao/759/0/0/1/aventura"><span>Aventura</span></a></li><li><a href="./secao/760/0/0/1/corrida"><span>Corrida</span></a></li><li><a href="./secao/761/0/0/1/esporte"><span>Esporte</span></a></li><li><a href="./secao/762/0/0/1/estrategia"><span>Estratégia</span></a></li><li><a href="./secao/764/0/0/1/guerra"><span>Guerra</span></a></li><li><a href="./secao/765/0/0/1/infantil"><span>Infantil</span></a></li><li><a href="./secao/766/0/0/1/luta"><span>Luta</span></a></li><li><a href="./secao/767/0/0/1/musica"><span>Música</span></a></li><li><a href="./secao/769/0/0/1/rpg"><span>RPG</span></a></li><li><a href="./secao/770/0/0/1/simulacao"><span>Simulação</span></a></li><li><a href="./secao/771/0/0/1/tiro"><span>Tiro</span></a></li><li><a href="./secao/772/0/0/1/violencia"><span>Violência</span></a></li></ul>
+</h3>
+</div>
+</div><div class="secao">
+<h2><a class="" href="./secao/110/0/0/1/series-de-tv"><span>Series de TV</span></a></h2>
+<div class="subsecao">
+<h3>
+<a href="./secao/58/0/0/1/blu-ray"><span>Blu-ray</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/57/0/0/1/dvd"><span>DVD</span></a>
+<ul></ul>
+</h3>
+</div>
+</div><div class="secao">
+<h2><a class="" href="./secao/840/0/0/1/pre-venda"><span>Pré-Venda</span></a></h2>
+<div class="subsecao">
+<h3>
+<a href="./secao/1217/0/0/1/novembro-dia-01"><span>Novembro - Dia 01</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1220/0/0/1/novembro-dia-03"><span>Novembro - Dia 03</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1221/0/0/1/novembro-dia-08"><span>Novembro - Dia 08</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1218/0/0/1/novembro-dia-14"><span>Novembro - Dia 14</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1222/0/0/1/novembro-dia-23"><span>Novembro - Dia 23</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1219/0/0/1/novembro-dia-28"><span>Novembro - Dia 28</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1184/0/0/1/outubro-dia-04"><span>Outubro - Dia 04</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1185/0/0/1/outubro-dia-11"><span>Outubro - Dia 11</span></a>
+<ul></ul>
+</h3>
+<h3>
+<a href="./secao/1186/0/0/1/outubro-dia-26"><span>Outubro - Dia 26</span></a>
+<ul></ul>
+</h3>
+</div>
+</div><div class="secao">
+<h2><a class="" href="./secao/1211/0/0/1/rebaixas"><span>Rebaixas</span></a></h2>
+<div class="subsecao">
+<h3>
+<a href="./secao/1207/0/0/1/rebaixa-disney"><span>Rebaixa Disney</span></a>
+<ul></ul>
+</h3>
+</div>
+</div>
+<div class="secao suporte">
+<h2>
+<a class="" href="http://revista.ewmix.com/" target="_blank"><span>Revista</span></a>
+</h2>
+</div>
+<div class="secao suporte">
+<h2>
+<a class="" href="http://blog.ewmix.com/" target="_blank"><span>Blog</span></a>
+</h2>
+</div>
+<div class="secao suporte">
+<h2>
+<a class="" href="/atendimento"><span>Atendimento</span></a>
+</h2>
+</div>
+</div>
+</div>
+<div id="site">
+<div class="conteudo">
+<div id="col_cent">
+<a name="irconteudo" style="display: none;"></a>
+<div id="feedback">
+</div>
+<div class="logistica box">
+<h2>Logísticas</h2>
+<div class="int">
+<iframe name="logisticaplayer" width="640" height="360" src="//www.youtube.com/embed/hq3iDbWibHQ?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+<a href="https://www.youtube.com/embed/XEn1YVvWjlQ?rel=0&autoplay=1&hd=1" target="logisticaplayer">Veja também</a> a logística de venda à Pessoa Jurídica através de representação comercial. (<a href="https://www.youtube.com/embed/hq3iDbWibHQ?rel=0&autoplay=1&hd=1" target="logisticaplayer">PF</a>/<a href="https://www.youtube.com/embed/XEn1YVvWjlQ?rel=0&autoplay=1&hd=1" target="logisticaplayer">PJ</a>)
+</div>
+</div>
+<div class="trocapage box">
+<h2>Política de trocas</h2>
+<div class="int">
+<p>Em caso de dúvida quanto a trocas ou devoluções, entre em contato com nossa <a href="./atendimento">central de atendimento</a>, pois se o produto for devolvido sem esta comunicação, será reenviado sem consulta prévia.</p>
+</div>
+<div class="int">
+<p>Pedimos que <b>recuse o recebimento</b> do produto nas seguintes situações:</p>
+<ul class="lista">
+<li>Embalagem aberta ou avariada;</li>
+<li>Produto avariado;</li>
+<li>Produto em desacordo com o pedido;</li>
+</ul>
+</div>
+<div class="int">
+<p>No caso de devolução por <b>arrepedimento ou desistência</b>, pedimos que observe as seguintes condições:</p>
+<ul class="lista">
+<li>O prazo para desistir da compra do produto é de sete dias corridos, a contar da data do recebimento;</li>
+<li>O produto deverá ser encaminhado na embalagem original, sem indícios de uso, sem violação do lacre original do fabricante, acompanhado de nota fiscal;</li>
+<li>Os custos de frete para devolução por arrependimento é por conta do cliente;</li>
+</ul>
+</div>
+<div class="int">
+<p>Se você receber um <b>produto com defeito</b>, por favor entre em contato com nossa <a href="./atendimento">central de atendimento</a> em até sete dias corridos, a contar da data do recebimento.</p>
+<p>O produto deve ser devolvido, acompanhado da nota fiscal e carta de devolução/troca fornecida central de atendimento.</p>
+</div>
+<div class="int">
+<p>Para maiores esclarecimentos, entre em contato com nossa <a href="./atendimento">central de atendimento</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="rodape">
+<div class="plist produtogrupo box">
+<h2>Produtos vistos recentemente</h2>
+<ul class="">
+<li class="prod">
+<a class="animated" href="./filme/14364/despedida-em-grande-estilo">
+<div class="pic animated"><img src="https://produto.ewmix.com/14364/g.jpg" alt="Capa do filme &#039;Despedida em Grande Estilo&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>49,90</span></div>
+<div class="etiqueta animated">
+<div class="tit">Despedida em Grande Estilo</div>
+<div class="st2">Morgan Freeman e Michael Caine</div>
+<div class="st1">DVD - Warner</div>
+<div class="porIn">por R$ <span>49,90</span></div>
+</div>
+</a>
+<div class="colecao"></div>
+</li><li class="prod">
+<a class="animated" href="./filme/14554/dupla-explosiva">
+<div class="pic animated"><img src="https://produto.ewmix.com/14554/g.jpg" alt="Capa do filme &#039;Dupla Explosiva&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>99,90</span></div>
+<div class="prevenda2 animated"><span>Pré-Venda</span></div>
+<div class="etiqueta animated">
+<div class="prevenda">A partir de 28/11/17</div>
+<div class="tit">Dupla Explosiva</div>
+<div class="st2">Ryan Reynolds e Samuel L. Jackson</div>
+<div class="st1">DVD - Califórnia Filmes</div>
+<div class="porIn">por R$ <span>99,90</span></div>
+</div>
+</a>
+<div class="colecao"></div>
+</li><li class="prod">
+<a class="animated" href="./filme/12520/descendentes">
+<div class="pic animated"><img src="https://produto.ewmix.com/12520/g.jpg" alt="Capa do filme &#039;Descendentes&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>12,90</span></div>
+<div class="de animated">R$ 19,90</div>
+<div class="prevenda2 animated"><span>Pré-Venda</span></div>
+<div class="etiqueta animated">
+<div class="prevenda">A partir de 06/10/17</div>
+<div class="tit">Descendentes</div>
+<div class="st2">Dove Cameron e Cameron Boyce</div>
+<div class="st1">DVD - Buena Vista Disney</div>
+<div class="deIn">de R$ 19,90</div>
+<div class="porIn">por R$ <span>12,90</span></div>
+</div>
+</a>
+<div class="colecao"><a class="colecao" href="./colecao/1213/0/descendentes">Coleção Descendentes</a></div>
+</li><li class="prod">
+<a class="animated" href="./filme/13172/zootopia-blu-ray">
+<div class="pic animated"><img src="https://produto.ewmix.com/13172/g.jpg" alt="Capa do filme &#039;Zootopia - Blu-ray&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>19,90</span></div>
+<div class="de animated">R$ 39,90</div>
+<div class="etiqueta animated">
+<div class="tit">Zootopia - Blu-ray</div>
+<div class="st2"></div>
+<div class="st1">Blu-ray - Buena Vista Disney</div>
+<div class="deIn">de R$ 39,90</div>
+<div class="porIn">por R$ <span>19,90</span></div>
+</div>
+</a>
+<div class="colecao"></div>
+</li><li class="prod">
+<a class="animated" href="./filme/13101/star-wars-episodio-vii-o-despertar-da-forca-steelbook-blu-ray-02-discos">
+<div class="pic animated"><img src="https://produto.ewmix.com/13101/g.jpg" alt="Capa do filme &#039;Star Wars: Episódio VII - O Despertar da Força - Steelbook - Blu-ray (02 Discos)&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>49,90</span></div>
+<div class="de animated">R$ 99,90</div>
+<div class="prevenda2 animated"><span>Pré-Venda</span></div>
+<div class="etiqueta animated">
+<div class="prevenda">A partir de 06/10/17</div>
+<div class="tit">Star Wars: Episódio VII - O Despertar da Força - Steelbook - Blu-ray (02 Discos)</div>
+<div class="st2">Harrison Ford e Mark Hamill</div>
+<div class="st1">Blu-ray - Buena Vista Disney</div>
+<div class="deIn">de R$ 99,90</div>
+<div class="porIn">por R$ <span>49,90</span></div>
+</div>
+</a>
+<div class="colecao"><a class="colecao" href="./colecao/203/0/star-wars">Coleção Star Wars</a></div>
+</li><li class="prod">
+<a class="animated" href="./filme/13832/o-bom-gigante-amigo-blu-ray">
+<div class="pic animated"><img src="https://produto.ewmix.com/13832/g.jpg" alt="Capa do filme &#039;O Bom Gigante Amigo - Blu-ray&#039;" width="150px" height="120px" /></div>
+<div class="por animated">R$ <span>19,90</span></div>
+<div class="de animated">R$ 39,90</div>
+<div class="etiqueta animated">
+<div class="tit">O Bom Gigante Amigo - Blu-ray</div>
+<div class="st2">Mark Rylance e Ruby Barnhill</div>
+<div class="st1">Blu-ray - Buena Vista Disney</div>
+<div class="deIn">de R$ 39,90</div>
+<div class="porIn">por R$ <span>19,90</span></div>
+</div>
+</a>
+<div class="colecao"></div>
+</li>
+</ul>
+</div>
+<div id="barraRodape" class="canto">
+<div class="links separador">
+<a href="/login">Entrar</a><br>
+<a href="./atendimento">Atendimento</a><br>
+<a href="./quemsomos">Quem somos</a><br>
+<a href="./politicadetrocas">Política de trocas</a>
+</div>
+<div class="links separador">
+<a href="./artistas">Artistas</a><br>
+<a href="http://blog.ewmix.com" target="_blank">Blog eWmix</a><br>
+<a href="http://revista.ewmix.com" target="_blank">Revista Wmix</a>
+</div>
+<div class="links">
+<a href="./locadoras">Encontre uma locadora</a><br>
+<a target="wmixvideo" href="https://www.wmixvideo.com.br/">Acesso para locadoras</a>
+</div>
+<div class="selos png canto">
+<a class="pirataria" href="http://www.ubv.org.br/pirataria" target="ubv">
+<div class="pirataria"></div>
+</a>
+<div class="garantia"></div>
+</div>
+<div class="central">
+<div class="itens">
+<div class="social">
+<h4>Siga-nos pela web</h4>
+<a href="https://twitter.com/ewmix/" target="twitter" class="twitter"></a>
+<a href="https://www.facebook.com/ewmix" target="facebook" class="facebook"></a>
+<a href="https://www.youtube.com/ewmixcom" target="youtube" class="youtube"></a>
+<a href="https://www.linkedin.com/companies/wmix-distribuidora-ltda" target="linkedin" class="linkedin"></a>
+<a href="https://feeds.feedburner.com/ewmixblog" target="feed" class="feed"></a>
+</div>
+<div class="correios">
+<h4>Entrega rápida</h4>
+<div class="png"></div>
+</div>
+<div class="pagseguro">
+<h4>Pagamento seguro</h4>
+<div class="png"></div>
+</div>
+</div>
+</div>
+<div class="legais">
+<div>© 2017 eWmix.com</div>
+Wmix Distribuidora Ltda - CNPJ: 03.918.609/0001-32 - Av. Brigadeiro da Silva Paes, 225. Campinas, São José -
+SC. CEP: 88101-250<br />
+Em caso de divergência de preços, o valor válido é o do Carrinho de Compras.
+</div>
+</div>
+<script>
+/*<![CDATA[*/
+
+var lastScrollTop = 0;
+$(window).scroll(function (event) {
+var st = $(this).scrollTop();
+if (st <= 0) {
+$("#menu").removeClass('fadeOutUp');
+$("#menu").addClass('fadeInDown');
+$("#topo").removeClass('redgray');
+$("#topo").addClass('grayred');
+} else if (st > lastScrollTop) {
+$("#menu").addClass('animated');
+$("#menu").removeClass('fadeInDown');
+$("#menu").addClass('fadeOutUp');
+$("#topo").addClass('animated');
+$("#topo").addClass('redgray');
+$("#topo").removeClass('grayred');
+} else {
+$("#menu").removeClass('fadeOutUp');
+$("#menu").addClass('fadeInDown');
+$("#topo").removeClass('redgray');
+$("#topo").addClass('grayred');
+}
+lastScrollTop = st;
+});
+$('div.sugestoes ul li.prod').click(function () {
+$(this).addClass('fadeOutUp');
+});
+$('#topo').hover(function () {
+$("#menu").removeClass('fadeOutUp');
+$("#menu").addClass('fadeInDown');
+$(this).addClass('grayred');
+$(this).removeClass('redgray');
+});
+$('.prod').hover(function () {
+$(this).find('.de').addClass('fadeOutUp');
+$(this).find('.de').removeClass('fadeInDown');
+$(this).find('.por').addClass('fadeOutUp');
+$(this).find('.por').removeClass('fadeInDown');
+$(this).find('.indisponivel').addClass('fadeOutUp');
+$(this).find('.poindisponivelr').removeClass('fadeInDown');
+$(this).find('.breve2').addClass('fadeOutUp');
+$(this).find('.breve2').removeClass('fadeInDown');
+$(this).find('.prevenda2').addClass('fadeOutUp');
+$(this).find('.prevenda2').removeClass('fadeInDown');
+$(this).find('.etiqueta').addClass('fadeInUp');
+$(this).find('.etiqueta').removeClass('fadeOutDown');
+});
+$('.prod').mouseleave(function () {
+$(this).find('.de').removeClass('fadeOutUp');
+$(this).find('.de').addClass('fadeInDown');
+$(this).find('.por').removeClass('fadeOutUp');
+$(this).find('.por').addClass('fadeInDown');
+$(this).find('.indisponivel').removeClass('fadeOutUp');
+$(this).find('.indisponivel').addClass('fadeInDown');
+$(this).find('.breve2').removeClass('fadeOutUp');
+$(this).find('.breve2').addClass('fadeInDown');
+$(this).find('.prevenda2').removeClass('fadeOutUp');
+$(this).find('.prevenda2').addClass('fadeInDown');
+$(this).find('.etiqueta').removeClass('fadeInUp');
+$(this).find('.etiqueta').addClass('fadeOutDown');
+});
+
+/*]]>*/
+</script>
+</div>
+</div>
+<script async="">/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","wmixvideo.zendesk.com");/*]]>*/</script>
+<script async="">
+/*<![CDATA[*/
+
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '191936407920690');
+fbq('track', 'PageView');
+
+/*]]>*/
+</script>
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/56e9fb15-71e4-4d20-815f-cb66b473a4af-loader.js"></script>
+</body>
+</html>
