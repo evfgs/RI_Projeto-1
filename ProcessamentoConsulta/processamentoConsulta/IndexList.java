@@ -6,6 +6,7 @@ public class IndexList {
 //    Postings list;
     public Postings head;
     public Postings last;
+	public int frequency;
     
     public int getCount(){
         return count;
@@ -13,5 +14,8 @@ public class IndexList {
     
     public String getTerm(){
         return term;
+    }
+    public int getFrequency(){
+    	return frequency;
     }
 }
