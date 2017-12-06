@@ -2,8 +2,8 @@ package processamentoConsulta;
 
 public class Kendall {
 	
-	private static int arrayX[] = {1,2,3,4,5};
-	private static int arrayY[] = {2,3,1,5,4};
+	private static int arrayX[] = {1,2,4,3};
+	private static int arrayY[] = {3,4,1,2};
 	
 	public static void main(String[] args) {
 		System.out.println(kendall(arrayX, arrayY));
