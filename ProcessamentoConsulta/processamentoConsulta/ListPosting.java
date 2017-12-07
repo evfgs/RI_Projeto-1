@@ -1,23 +1,23 @@
 package processamentoConsulta;
 
-public class DocList {
+public class ListPosting {
 	String docID;
 	String termo;
 	double frequencia;
 
-	public DocList(String docID, String termo, double frequencia) {
+	public ListPosting(String docID, String termo, double frequencia) {
 		this.docID = docID;
 		this.termo = termo;
 		this.frequencia = frequencia;
 	}
 
-	public DocList() {
+	public ListPosting() {
 		// TODO Auto-generated constructor stub
 	}
 
-	DocList next;
+	ListPosting next;
 
-	void insert(DocList l) {
+	void insert(ListPosting l) {
 		if (next == null) {
 			next = l;
 		}else {
@@ -25,12 +25,12 @@ public class DocList {
 		}
 	}
 
-	double procurarTermo(String id, String busca) {
+	double getFreqTerm(String id, String busca) {
 		if (id.equals(docID) && busca.equals(termo)) {
 			return frequencia;
 		}else {
 			if (next != null) {
-				return next.procurarTermo(id, busca);
+				return next.getFreqTerm(id, busca);
 			}else {
 				return 0;
 			}

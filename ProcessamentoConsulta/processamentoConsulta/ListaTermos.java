@@ -3,7 +3,6 @@ package processamentoConsulta;
 public class ListaTermos {
     public String term;
     public int count;
-//    Postings list;
     public Postings head;
     public Postings last;
 	public int frequency;

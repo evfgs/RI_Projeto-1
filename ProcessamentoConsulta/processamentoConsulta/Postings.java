@@ -3,14 +3,14 @@ package processamentoConsulta;
 public class Postings
 {
     public String docID;
-    public int times;
+    public int freq;
     public Postings next;
     public Postings prev;
 
     
     public Postings(String docID, int times, Postings next, Postings prev){
         this.docID = docID;
-        this.times = times;
+        this.freq = times;
         this.prev = prev;
         this.next = next;
     }
@@ -18,13 +18,13 @@ public class Postings
     public Postings()
     {
         this.docID = null;
-        this.times = 0;
+        this.freq = 0;
         this.prev = null;
         this.next = null;
     }
     
     public int getTimes(){
-        return times;
+        return freq;
     }
     
     public int getDocID(){
