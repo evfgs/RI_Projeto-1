@@ -36,4 +36,12 @@ public class DocList {
 			}
 		}
 	}
+	
+	boolean docHasTerm(String id, String busca){
+		if(id.equals(docID) && busca.equals(termo)){
+			return true;
+		} else{
+			return false;
+		}
+	}
 }

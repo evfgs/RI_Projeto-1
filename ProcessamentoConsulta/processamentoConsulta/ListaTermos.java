@@ -1,6 +1,6 @@
 package processamentoConsulta;
 
-public class IndexList {
+public class ListaTermos {
     public String term;
     public int count;
 //    Postings list;

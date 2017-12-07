@@ -2,8 +2,8 @@ package processamentoConsulta;
 
 public class Kendall {
 	
-	private static int arrayX[] = {1,2,4,3};
-	private static int arrayY[] = {3,4,1,2};
+	private static int arrayX[] = {1,2,3,4,5};
+	private static int arrayY[] = {2,3,1,5,4};
 	
 	public static void main(String[] args) {
 		System.out.println(kendall(arrayX, arrayY));
@@ -19,7 +19,7 @@ public class Kendall {
         // se for positivo, quer dizer que essas posições são concordantes(cresceram ou diminuiram ao msm tempo)
         // se for negativo, quer dizer que são descordantes(um cresceu enquanto o outro diminuiu)
         // se for negativo, quer dizer que teve algum empate dentro de um dos rankings
-        double is = 0, n2 = 0, n1 = 0, n = x.length;
+        double is = 0, n = x.length;
         //is = concordantes - descordantes
         // n1 e n2 = pares validos(sem empate) para cada ranking
         double aa, a2, a1;
@@ -29,19 +29,10 @@ public class Kendall {
                 a2 = y[j] - y[k];
                 aa = a1 * a2;
                 if (aa != 0.0) {
-                    ++n1;
-                    ++n2;
                     if (aa <= 0) {
                         is = is +2;
                     }
 
-                } else {
-                    if (a1 != 0.0) {
-                        ++n1;
-                    }
-                    if (a2 != 0.0) {
-                        ++n2;
-                    }
                 }
             }
         }
