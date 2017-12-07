@@ -21,7 +21,7 @@ public class Processamento {
 
 	//TODO Refatoração, muito código repetido!
 	
-	private static String query = "hard hand";
+	private static String query = "hard hand"; //high hope
 	private static ArrayList<String> postings;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -32,7 +32,7 @@ public class Processamento {
 		getPostings(query, indexReader);
 		Reader input2 = new FileReader("C:\\Users\\emanu\\Desktop\\RI\\FUNCIONAL\\taat-daat-master\\term.txt");
 		BufferedReader indexReader2 = new BufferedReader(input2);
-		vectorsTf(postings, indexReader2);
+		//vectorsTf(postings, indexReader2);
 		Reader input3 = new FileReader("C:\\Users\\emanu\\Desktop\\RI\\FUNCIONAL\\taat-daat-master\\term.txt");
 		BufferedReader indexReader3 = new BufferedReader(input3);
 		vectorsTfIdf(postings, indexReader3);
@@ -312,7 +312,7 @@ public class Processamento {
 			System.out.println();
 		}
 		for(int i = 0; i < postings.size(); i++) {
-			System.out.println(cosSimilarity(postings, termos, vectors)[i]);
+			System.out.println(postings.get(i) + "= " + cosSimilarity(postings, termos, vectors)[i]);
 		}
 		System.out.println(rank(postings, cosSimilarity(postings, termos, vectors)));
 	}

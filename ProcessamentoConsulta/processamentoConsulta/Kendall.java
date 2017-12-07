@@ -7,9 +7,7 @@ public class Kendall {
 	
 	public static void main(String[] args) {
 		System.out.println(kendall(arrayX, arrayY));
-
-	}
-	
+	}	
 	public static double kendall(int[] x, int[] y) {
         if (x.length != y.length) {
             throw new IllegalArgumentException("Input vector sizes are different.");
@@ -32,7 +30,6 @@ public class Kendall {
                     if (aa <= 0) {
                         is = is +2;
                     }
-
                 }
             }
         }
