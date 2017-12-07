@@ -1,6 +1,8 @@
 package processamentoConsulta;
 
-public class ListaTermos {
+
+//Para guardar informaçoes de cada termo
+public class Termo {
     public String term;
     public int count;
     public Postings head;

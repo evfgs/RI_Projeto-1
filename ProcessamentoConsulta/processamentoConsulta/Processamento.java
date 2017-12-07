@@ -32,16 +32,16 @@ public class Processamento {
 		getPostings(query, indexReader);
 		Reader input2 = new FileReader("C:\\Users\\emanu\\Desktop\\RI\\FUNCIONAL\\taat-daat-master\\term.txt");
 		BufferedReader indexReader2 = new BufferedReader(input2);
-		//vectorsTf(postings, indexReader2);
+		vectorsTf(postings, indexReader2);
 		Reader input3 = new FileReader("C:\\Users\\emanu\\Desktop\\RI\\FUNCIONAL\\taat-daat-master\\term.txt");
 		BufferedReader indexReader3 = new BufferedReader(input3);
 		vectorsTfIdf(postings, indexReader3);
 	}
-
-	public static String getPostingsAtTime(String[] terms, HashMap<String, ListaTermos> indexMap){
-		ArrayList<ListaTermos> sortedList = new ArrayList<>();
+	//Vai pegar os documentos e ver se eles possuem os termos da query(DocAtATime)
+	public static String getPostingsAtTime(String[] terms, HashMap<String, Termo> indexMap){
+		ArrayList<Termo> sortedList = new ArrayList<>();
 		for(int i =0; i<terms.length;i++){
-			ListaTermos sortedDocs = sortDocFreq(indexMap.get(terms[i]));
+			Termo sortedDocs = sortDocFreq(indexMap.get(terms[i]));
 			sortedList.add(sortedDocs);
 		}
 		ArrayList<String> postingsList;
@@ -53,21 +53,23 @@ public class Processamento {
 
 		printOutput += "\n"+postingsList.size()+" documentos encontrados : \n";
 
-		for(String term : postingsList){
+		for(String posting : postingsList){
 			postings = postingsList;
-			printOutput += term + ", ";
+			printOutput += posting + ", ";
 			//documentos retornados
 		}
 		return printOutput;
 	}
+	
+	//Método principal para pegar os postings e retornar aqueles que possuem os termos da query
 	public static void getPostings(String query, BufferedReader indexReader) throws NumberFormatException, IOException{
 
 		String currentLine;
-		ArrayList<ListaTermos> index = new ArrayList<>();
+		ArrayList<Termo> index = new ArrayList<>();
 		Postings post;
 		//vai ler o indice invertido e separar os campos do mesmo(termo, docs, frequencia)
 		while ((currentLine = indexReader.readLine()) != null) {
-			ListaTermos auxList = new ListaTermos();
+			Termo auxList = new Termo();
 			String term[] = currentLine.split("\\\\");
 			auxList.term = term[0];
 			String out = currentLine.substring(currentLine.indexOf("[")+1,currentLine.indexOf("]"));//esse array seria a lista de postings e suas respectivas frequencias
@@ -93,8 +95,8 @@ public class Processamento {
 		}
 
 		index = sortByCount(index);//faz o sort da Lista
-		HashMap<String, ListaTermos> IndexMap = new HashMap<>();
-		for (ListaTermos tIndex : index) {
+		HashMap<String, Termo> IndexMap = new HashMap<>();
+		for (Termo tIndex : index) {
 			IndexMap.put(tIndex.getTerm(), tIndex);
 		}
 
@@ -116,7 +118,8 @@ public class Processamento {
 
 	}
 	
-	public static ArrayList<String> documentAnd(ArrayList<ListaTermos> terms){
+	//Avalia se os termos do documento são validos(not null), se são iguais(allEqual) 
+	public static ArrayList<String> documentAnd(ArrayList<Termo> terms){
 		ArrayList<String> toIncrement = new ArrayList<>();
 		while(checkListNotNull(terms))
 		{
@@ -135,9 +138,9 @@ public class Processamento {
 		return toIncrement;
 	} 
 	
-	public static ArrayList<ListaTermos> sortByCount(ArrayList<ListaTermos> terms){//sorting
-		Collections.sort(terms, new Comparator<ListaTermos>() {
-			public int compare(ListaTermos a1, ListaTermos a2) {
+	public static ArrayList<Termo> sortByCount(ArrayList<Termo> terms){//sorting
+		Collections.sort(terms, new Comparator<Termo>() {
+			public int compare(Termo a1, Termo a2) {
 				if(a1.count > a2.count)
 					return -1;
 				else if (a1.count < a2.count)
@@ -149,7 +152,7 @@ public class Processamento {
 	}
 
 	//Sorting by Document frequency
-	public static ListaTermos sortDocFreq(ListaTermos newIndex){
+	public static Termo sortDocFreq(Termo newIndex){
 
 		int size = 0;
 		for(Postings p = newIndex.head; p != null; p = p.next)
@@ -182,9 +185,9 @@ public class Processamento {
 	}
 
 	//check if list is not null
-	public static boolean checkListNotNull(ArrayList<ListaTermos> terms){
+	public static boolean checkListNotNull(ArrayList<Termo> terms){
 		boolean listNotNull = true;
-		for(ListaTermos term : terms){
+		for(Termo term : terms){
 			if(term.head == null)
 				listNotNull=false;
 			break;
@@ -193,7 +196,7 @@ public class Processamento {
 	}
 
 	//check if all terms of list are equal
-	public static boolean checkAllEqual(ArrayList<ListaTermos> terms){
+	public static boolean checkAllEqual(ArrayList<Termo> terms){
 		boolean allEqual = true;
 		for(int i=0;i< terms.size()-1;i++){
 			if(terms.get(i).head == null || terms.get(i+1).head== null){
@@ -208,8 +211,7 @@ public class Processamento {
 
 		return allEqual;
 	}
-
-	public static ArrayList<ListaTermos> increment(ArrayList<ListaTermos> terms){
+	public static ArrayList<Termo> increment(ArrayList<Termo> terms){
 		int lowest =0;
 		for(int i=0; i<terms.size();i++){//take the lowest frequency
 			if(terms.get(i).head == null)
@@ -229,16 +231,19 @@ public class Processamento {
 		}
 		return terms;
 	}
+	
+	//Vai tratar o tf, imprimindo os termos, vetores dos docs e query(todos com seus respectivos tf)
+	//imprime tbm o valor da similaridade do cosseno, e os docs ordenados baseados nesse valor
 	public static void vectorsTf(ArrayList<String> postings, BufferedReader indexReader) throws IOException {
 		String currentLine;
 		Postings post;
-		ArrayList<ListaTermos> newIndex = new ArrayList<>();
+		ArrayList<Termo> newIndex = new ArrayList<>();
 		ArrayList<String> termos = new ArrayList<>();
 		ListPosting listDocs = new ListPosting();
-		while ((currentLine = indexReader.readLine()) != null) {
+		while ((currentLine = indexReader.readLine()) != null) { //Lê o indice invertido novamente, para poder avaliar os docs com o tf
 			for(int i = 0; i < postings.size(); i++) {
 				if (currentLine.contains(postings.get(i))) {
-					ListaTermos auxList = new ListaTermos();
+					Termo auxList = new Termo();
 					String term[] = currentLine.split("\\\\");
 					auxList.term = term[0];
 					String out = currentLine.substring(currentLine.indexOf("[")+1,currentLine.indexOf("]")); 
@@ -318,16 +323,18 @@ public class Processamento {
 	}
 	//Repetição de codigo desnecessaria
 	//TODO: Refatoração
+	//Vai tratar o tfidf, imprimindo os termos, vetores dos docs e query(todos com seus respectivos tfidf)
+	//imprime tbm o valor da similaridade do cosseno, e os docs ordenados baseados nesse valor
 	public static void vectorsTfIdf(ArrayList<String> postings2, BufferedReader indexReader) throws IOException {
 		String currentLine;
 		Postings post;
-		ArrayList<ListaTermos> newIndex = new ArrayList<>();
+		ArrayList<Termo> newIndex = new ArrayList<>();
 		ArrayList<String> termos = new ArrayList<>();
 		ListPosting listDocs = new ListPosting();
-		while ((currentLine = indexReader.readLine()) != null) {
-			for(int i = 0; i < postings2.size(); i++) {
+		while ((currentLine = indexReader.readLine()) != null) {//Vai ler o indice invertido novamente 
+			for(int i = 0; i < postings2.size(); i++) {        	//possivel refatoração aqui
 				if (currentLine.contains(postings2.get(i))) {
-					ListaTermos auxList = new ListaTermos();
+					Termo auxList = new Termo();
 					String term[] = currentLine.split("\\\\");
 					auxList.term = term[0];
 					String out = currentLine.substring(currentLine.indexOf("[")+1,currentLine.indexOf("]")); 
@@ -346,7 +353,6 @@ public class Processamento {
 							auxList.frequency += Integer.parseInt(field[1]);
 							post.freq = Integer.parseInt(field[1]);
 							listDocs.insert(new ListPosting(post.docID, auxList.term, Double.parseDouble(field[1])));
-							//System.out.println(temp.term + " " + post.docID + " " + temp1[1]);
 							if(auxList.head == null){
 								auxList.head = post;
 								auxList.last = auxList.head;           
@@ -358,11 +364,11 @@ public class Processamento {
 							}
 						}
 					}
-					//System.out.println(temp.term + " " + temp.frequency);
 					newIndex.add(auxList); 
 				}
 			}
 		}
+		//imprime os termos
 		System.out.println(termos);
 		double vectors[][] = new double[postings2.size() + 1][termos.size()]; //doc.length +1 pois adiciona o vetor da query
 		for(int i = 0; i < postings2.size(); i++) {
@@ -429,7 +435,7 @@ public class Processamento {
 		System.out.println(rank(postings2, cosSimilarity(postings2, termos, vectors)));
 	}
 	
-	
+	//rank descendente baseado na similaridade do cosseno
 	public static Map<String, Double> rank(ArrayList<String> postings, double[] cos){
 		Map<String,Double> map = new LinkedHashMap<String,Double>();
 		for(int i = 0; i < cos.length; i++){
@@ -437,21 +443,9 @@ public class Processamento {
 		}
 		return map;
 		
-	}
+	}	
 	
-	/*public static void sortByComparator(Map<String, Double> unsortMap){
-		Map<Object, Object> sortedMap = 
-			     unsortMap.entrySet().stream()
-			    .sorted(Entry.comparingByValue())
-			    .collect(Collectors.toMap(Entry::getKey, Entry::getValue,
-			                              (e1, e2) -> e1, LinkedHashMap::new));		
-		
-		ArrayList<Object> keys = new ArrayList<Object>(sortedMap.keySet());
-        for(int i=keys.size()-1; i>=0;i--){
-            System.out.println(sortedMap.get(keys.get(i)));
-        }
-	}*/
-	
+	//calculo da similaridade do cosseno
 	public static double[] cosSimilarity(ArrayList<String> postings2, ArrayList<String> termos, double vectors[][]){
 		double cosSimilarity[] = new double[postings2.size()];
 		for(int i = 0; i < postings2.size(); i++) {
@@ -462,6 +456,7 @@ public class Processamento {
 		return cosSimilarity;
 	}
 
+	//Calculo do dotProduct(entre cada document e a query)
 	public static double[] dotProduct(ArrayList<String> postings2, ArrayList<String> termos, double vectors[][]){
 		double dotProduct[] = new double[postings2.size()];
 		for(int i = 0; i < postings2.size(); i++) {
@@ -473,6 +468,7 @@ public class Processamento {
 		return dotProduct;
 	}
 	
+	//Calculo do tamando do vetor(||v||) dos documentos e da query
 	public static double[] vectorLength(ArrayList<String> postings2, ArrayList<String> termos, double vectors[][]){
 		double vectorLength[] = new double[postings2.size() + 1];
 		for(int i = 0; i < postings2.size() + 1; i++) {

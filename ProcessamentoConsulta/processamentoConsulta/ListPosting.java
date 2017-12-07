@@ -1,5 +1,6 @@
 package processamentoConsulta;
 
+//Lista dos postings, apenas para auxiliar no momento de pegar o docId, frequencia de cada termo 
 public class ListPosting {
 	String docID;
 	String termo;
